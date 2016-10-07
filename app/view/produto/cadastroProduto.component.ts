@@ -4,12 +4,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Retorno} from "../../model/Retorno";
 import {HttpService} from "../../services/http.service";
-
+declare var jQuery:any;
 @Component({
     moduleId: module.id,
     selector: 'cadastro-produto',
     templateUrl: '../../template/produto/frm-cadastro-produto.component.html'
 })
+
 export class CadastroProdutoComponent implements OnInit {
 
     private retorno: Retorno;
@@ -26,6 +27,7 @@ export class CadastroProdutoComponent implements OnInit {
     }
 
     ngOnInit() {
+        jQuery('select').material_select();
     }
 
     callBack() {
