@@ -4,20 +4,20 @@
 <!--* Date: 03/10/2016-->
 <!--* Time: 13:38-->
 <div class="">
-        <!-- Default panel contents -->
+    <!-- Default panel contents -->
 
-            <table class="bordered">
-                <tr>
-                    <th data-field="id">ID</th>
-                    <th data-field="nome">Nome</th>
-                    <th data-field="email">Email</th>
-                    <th data-field="senha">Senha</th>
-                </tr>
-                <tr *ngFor="let usuario of usuarios; let i = index">
-                    <td>{{usuario.id}}</td>
-                    <td>{{usuario.nome}}</td>
-                    <td>{{usuario.email}}</td>
-                    <td>{{usuario.senha}}</td>
-                </tr>
-            </table>
-        </div>
+    <table class="bordered">
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="nome">Nome</th>
+            <th data-field="email">Email</th>
+            <th data-field="senha">Senha</th>
+        </tr>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.senha}}</td>
+        </tr>
+    </table>
+</div>

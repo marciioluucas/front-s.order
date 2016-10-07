@@ -6,6 +6,7 @@ import {ModuleWithProviders}  from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ProdutoComponent} from "./view/produto/produto.component";
 import {UsuarioComponent} from "./view/usuario/usuario.component";
+import {CadastroPedidoComponent} from "./view/pedido/cadastroPedido.component";
 
 
 const appRoutes: Routes = [
@@ -37,8 +38,13 @@ const appRoutes: Routes = [
         {
             path: 'usuario',
             component: UsuarioComponent
+        },
+        {
+            path :'pedido',
+            component: CadastroPedidoComponent
         }
     ]
+
     ;
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
