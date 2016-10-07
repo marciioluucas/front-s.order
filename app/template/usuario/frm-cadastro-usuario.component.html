@@ -1,0 +1,49 @@
+<style>
+    .input-field input:focus {
+        border-bottom: 1px solid #311b92;
+        box-shadow: 0 1px 0 0 #000;
+    }
+</style>
+    <form class="" method="get">
+
+        <!-- Text input-->
+        <div class="">
+
+            <div class="form-group">
+                <div [class]="msg != null ? 'alert alert-success' : 'alert alert-danger'"
+                     [style.display]="isCallback ? 'block' : 'none'" role="alert"><strong> > </strong> {{msg}}
+                </div>
+            </div>
+            <div class="input-field">
+                <label class="col-md-4 control-label" for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" [(ngModel)]="nome"
+                       class="form-control" required="">
+            </div>
+
+            <!-- Password input-->
+            <div class="input-field ">
+                <label class="control-label" for="senha">Senha</label>
+                <input id="senha" name="senha" type="password" [(ngModel)]="senha"
+                       class="form-control" required="">
+
+            </div>
+
+            <!-- Text input-->
+            <div class="input-field ">
+                <label class="control-label" for="email">E-mail</label>
+                <input id="email" name="email" type="text" [(ngModel)]="email"
+                       class="form-control" required="">
+
+            </div>
+
+            <!-- Button -->
+            <div class="">
+                <label class="control-label" for="Enviar"></label>
+                <button id="Enviar" name="Enviar" class="waves-effect waves-light btn deep-purple darken-3"
+                        (click)="cadastrarUsuario()">Enviar
+                </button>
+            </div>
+        </div>
+
+    </form>
+

@@ -1,0 +1,65 @@
+<!--* Created by PhpStorm.-->
+<!--* User: Márcio Lucas-->
+<!--* E-mail: marciioluucas@gmail.com-->
+<!--* Date: 03/10/2016-->
+<!--* Time: 14:26-->
+<style>
+    header, main, footer, #botao {
+        padding-left: 300px;
+    }
+
+    @media only screen and (max-width: 992px) {
+        header, main, footer, #botao {
+            padding-left: 0;
+        }
+    }
+
+</style>
+<header class="">
+    <nav>
+        <div class="nav-wrapper deep-purple darken-3">
+            <a href="#" id='botao' data-activates="slide-in" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down right">
+                <li></li>
+                <li><a [routerLink]="['/usuario/perfil']">Perfil</a></li>
+                <li><a [routerLink]="['/usuario/sair']">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+
+        <ul id="slide-out" class="side-nav fixed">
+            <li style="text-align: center; color: #4527a0">
+                <h3 class="panel-title">< s.order/></h3>
+                <hr class="container" style="opacity: 0.5;"/>
+            </li>
+            <!--<li><a routerLink="/cadastro">Cadastro de usuário</a>-->
+            <!--</li>-->
+            <!--<li><a routerLink="/listar">Listagem de usuário</a></li>-->
+            <!--<li><a routerLink="/sortear">Sorteio de usuário</a></li>-->
+            <li><a routerLink="/usuario">Produtos</a></li>
+            <li><a routerLink="/listar">Pedidos</a></li>
+            <li><a routerLink="/sortear">Senhas</a></li>
+        </ul>
+
+
+</header>
+
+
+<main>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body" style="margin-bottom: 100px">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</main>
+<footer class="page-footer grey darken-3" style="bottom: 0; position: fixed">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 - Feito com <3 por Márcio Lucas.
+            <a class="grey-text text-lighten-4 right" href="#!">Project repository on Github.</a>
+        </div>
+    </div>
+</footer>
