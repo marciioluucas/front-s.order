@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'listar-produto',
+    selector: 'lista-de-produtos',
     templateUrl: '../../template/produto/listar-produto.component.html'
 })
 export class ListarProdutoComponent implements OnInit {

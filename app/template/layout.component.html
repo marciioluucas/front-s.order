@@ -18,12 +18,13 @@
 <header class="">
     <nav>
         <div class="nav-wrapper deep-purple darken-3">
-            <a href="#" id='botao' data-activates="slide-in" class="button-collapse"><i class="material-icons">menu</i></a>
+
             <ul id="nav-mobile" class="left hide-on-med-and-down right">
                 <li></li>
                 <li><a [routerLink]="['/usuario/perfil']">Perfil</a></li>
                 <li><a [routerLink]="['/usuario/sair']">Sair</a></li>
             </ul>
+            <a href="#" data-activates="slide-in" (click)="botaoColapse()" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
 
