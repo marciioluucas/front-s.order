@@ -10,13 +10,21 @@ export class LayoutComponent implements OnInit {
     }
 
     ngOnInit() {
+        jQuery('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+        );
+
+
     }
 
 
     botaoColapse() {
 
         // jQuery('body').on(evento, '.button-collapse', function () {
-            jQuery(".button-collapse").sideNav();
+
         // });
     }
 }
