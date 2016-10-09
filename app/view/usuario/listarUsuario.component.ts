@@ -26,7 +26,7 @@ export class ListarUsuarioComponent implements OnInit {
 
     listarUsuario() {
 
-        this.httpService.getJSON("http://192.168.0.104/apiTest/Angular/application/back/api/Search.php?q=usuario&filtro=1&valorFiltro=1")
+        this.httpService.getJSON("Search.php?q=usuario&filtro=1&valorFiltro=1")
             .subscribe(
                 data => this.usuarios = data.usuario,
                 error =>console.log(error)

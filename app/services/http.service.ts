@@ -9,18 +9,26 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HttpService {
+    //Variável para definir de onde vai requisitar os jsons nos métodos abaixo.
+    enderecoAPI: string = "http://localhost/sorder/back-s.order/api/";
 
-    constructor(private http:Http) {
+
+    constructor(private http: Http) {
     }
 
-    getJSON(url:string) {
+    //@DOC:
+    //Este método é responsável por fazer a requisisção GET no servidor da API
+    //Ele retorna um JSON que é fornecido pela API
+    getJSON(url: string) {
+        var enderecoAPICompleto: string = this.enderecoAPI + url;
+
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
         try {
-            return this.http.get(url)
-                .map((res:Response) => res.json())
+            return this.http.get(enderecoAPICompleto)
+                .map((res: Response) => res.json())
 
 
         } catch (Erro) {
@@ -28,15 +36,19 @@ export class HttpService {
         }
     }
 
-    postJSON(url:string, body:string) {
 
+    //@DOC:
+    //Este método é responsável por fazer a requisisção POST no servidor da API
+    //Ele retorna um JSON que é fornecido pela API
+    postJSON(url: string, body: string) {
+        var enderecoAPICompleto: string = this.enderecoAPI + url;
 
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         try {
 
             return this.http
-                .post(url, body, {headers: headers})
+                .post(enderecoAPICompleto, body, {headers: headers})
                 .map(response => response.json())
         }
         catch (Erro) {

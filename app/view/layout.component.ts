@@ -17,14 +17,5 @@ export class LayoutComponent implements OnInit {
             }
         );
 
-
-    }
-
-
-    botaoColapse() {
-
-        // jQuery('body').on(evento, '.button-collapse', function () {
-
-        // });
     }
 }

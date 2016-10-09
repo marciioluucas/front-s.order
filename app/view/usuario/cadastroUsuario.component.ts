@@ -26,6 +26,7 @@ export class CadastroUsuarioComponent implements OnInit {
     ngOnInit() {
     }
 
+    //metodo de retorno
     callBack() {
         this.msg = this.retorno.msg;
         this.isCallback = true;
@@ -34,13 +35,13 @@ export class CadastroUsuarioComponent implements OnInit {
 
 
     cadastrarUsuario() {
-        if(this.nome != undefined && this.email != undefined && this.senha != undefined) {
+        if (this.nome != undefined && this.email != undefined && this.senha != undefined) {
             let body: string;
             body = "q=usuario&nome=" + this.nome + "&email=" + this.email + "&senha=" + this.senha;
 
-            alert(body);
-
-            this.httpService.postJSON("http://192.168.0.104/apiTest/Angular/application/back/api/Insert.php",
+            //só precisa passar o nome do arquivo responsável por retornar o json como parametro,
+            //junto com os parametros http na variável body
+            this.httpService.postJSON("Insert.php",
                 body)
                 .subscribe(
                     data => this.retorno = data,
@@ -49,9 +50,6 @@ export class CadastroUsuarioComponent implements OnInit {
                 )
         }
     }
-
-
-
 
 
 }
