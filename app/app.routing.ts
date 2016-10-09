@@ -7,6 +7,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {ProdutoComponent} from "./view/produto/produto.component";
 import {UsuarioComponent} from "./view/usuario/usuario.component";
 import {CadastroPedidoComponent} from "./view/pedido/cadastroPedido.component";
+import {PedidoComponent} from "./view/pedido/pedido.component";
 
 
 const appRoutes: Routes = [
@@ -40,8 +41,8 @@ const appRoutes: Routes = [
             component: UsuarioComponent
         },
         {
-            path :'pedido',
-            component: CadastroPedidoComponent
+            path :'pedidos',
+            component: PedidoComponent
         }
     ]
 

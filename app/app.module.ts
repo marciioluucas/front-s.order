@@ -8,9 +8,9 @@ import {HttpService} from "./services/http.service";
 import {routing} from "./app.routing";
 import {LayoutComponent} from "./view/layout.component";
 import {SorteioComponent} from "./view/sorteio.component";
-import {CadastroPedidoComponent} from "./view/pedido/cadastroPedido.component";
 import {UsuarioModule} from "./view/usuario/usuario.module";
 import {ProdutoModule} from "./view/produto/produto.module";
+import {PedidoModule} from "./view/pedido/pedido.module";
 
 @NgModule({
     imports: [
@@ -19,13 +19,13 @@ import {ProdutoModule} from "./view/produto/produto.module";
         HttpModule,
         routing,
         UsuarioModule,
-        ProdutoModule
+        ProdutoModule,
+        PedidoModule
     ],
     declarations: [
         AppComponent,
         LayoutComponent,
-        SorteioComponent,
-        CadastroPedidoComponent
+        SorteioComponent
     ],
     providers: [
         HttpService
