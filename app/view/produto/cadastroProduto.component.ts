@@ -27,6 +27,7 @@ export class CadastroProdutoComponent implements OnInit {
     }
 
     ngOnInit() {
+        jQuery('input').attr('autocomplete', 'off');
         jQuery('select').material_select();
         this.gerarFormularioPropriedadesProduto();
     }
@@ -38,21 +39,19 @@ export class CadastroProdutoComponent implements OnInit {
     }
 
 
-
-
     cadastrar() {
-        // if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
+        if (this.nome != undefined) {
 
             let body: string;
-            var tamanhos =  document.getElementsByClassName('tamanhos');
-            var precos =  document.getElementsByClassName('precos');
-            let urlPropriedadesProduto:string = "";
-            for(var x = 0; x < tamanhos.length; x++){
-                urlPropriedadesProduto = urlPropriedadesProduto+"&tamanho[]="+(<HTMLInputElement>tamanhos[x]).value;
+            var tamanhos = document.getElementsByClassName('tamanhos');
+            var precos = document.getElementsByClassName('precos');
+            let urlPropriedadesProduto: string = "";
+            for (var x = 0; x < tamanhos.length; x++) {
+                urlPropriedadesProduto = urlPropriedadesProduto + "&tamanho["+x+"]=" + (<HTMLInputElement>tamanhos[x]).value;
             }
 
-            for(var y = 0; y < precos.length; y++) {
-                urlPropriedadesProduto = urlPropriedadesProduto+"&precos[]="+(<HTMLInputElement>precos[y]).value.replace(",","");
+            for (var y = 0; y < precos.length; y++) {
+                urlPropriedadesProduto = urlPropriedadesProduto + "&precos["+y+"]=" + (<HTMLInputElement>precos[y]).value.replace(",", "");
             }
             body = "q=produto&nome=" + this.nome + urlPropriedadesProduto;
             alert(body);
@@ -63,33 +62,19 @@ export class CadastroProdutoComponent implements OnInit {
             //         error => console.log(error),
             //         () => this.callBack()
             //     )
-        // }
+        }
     }
 
-    // cadastrarPropriedadesProduto(idProduto: number) {
-    //     if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
-    //         let body: string;
-    //         body = "q=propriedades_produto&tamanho=" + this.tamanho + "&preco=" + this.preco + "&produto_id=" + idProduto;
-    //
-    //         this.httpService.postJSON("Insert.php",
-    //             body)
-    //             .subscribe(
-    //                 data => this.retorno = data,
-    //                 error => console.log(error),
-    //                 () => this.callBack()
-    //             )
-    //     }
-    // }
 
     gerarFormularioPropriedadesProduto() {
         var input = "" +
             '<label class="row">' +
             '<div class="row">' +
-            '<div class="input-field col s8">' +
+            '<div class="input-field col s7">' +
             '<input id="" type="text" class="tamanhos" name="tamanho[]">' +
             '<label for="tamanho">Tamanho</label>' +
             '</div>' +
-            '<div class="input-field col s2">' +
+            '<div class="input-field col s3">' +
             '<input id="" type="text" class="precos" name="preco[]">' +
             '<label for="preco">Preço</label>' +
             '</div>' +
@@ -97,8 +82,14 @@ export class CadastroProdutoComponent implements OnInit {
             '</label>';
         jQuery("button[id='add']").click(function (e: any) {
             jQuery('#inputs_adicionais').append(input);
-            jQuery('.precos').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'', decimal:'.', affixesStay: false});
-            jQuery('input').attr('autocomplete','off');
+            jQuery('.precos').maskMoney({
+                prefix: 'R$ ',
+                allowNegative: true,
+                thousands: '',
+                decimal: '.',
+                affixesStay: false
+            });
+            jQuery('input').attr('autocomplete', 'off');
         });
 
         jQuery('#inputs_adicionais').delegate('a', 'click', function (e: any) {

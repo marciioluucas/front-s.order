@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
     //Variável para definir de onde vai requisitar os jsons nos métodos abaixo.
-    enderecoAPI: string = "http://localhost/sorder/back-s.order/api/";
+    enderecoAPI: string = "http://localhost/apiTest/Angular/application/back/api/";
 
 
     constructor(private http: Http) {
