@@ -89,11 +89,11 @@ export class CadastroProdutoComponent implements OnInit {
             '<input id="" type="text" class="tamanhos" name="tamanho[]">' +
             '<label for="tamanho">Tamanho</label>' +
             '</div>' +
-            '<div class="input-field col s3">' +
+            '<div class="input-field col s2">' +
             '<input id="" type="text" class="precos" name="preco[]">' +
             '<label for="preco">Preço</label>' +
             '</div>' +
-            '<a href="#" class="remove btn-floating btn-large waves-effect waves-light red"> <i class="material-icons">clear</i></a></div>' +
+            '<div class="col s2"><a href="#" class="remove btn-floating btn-large waves-effect waves-light red"> <i class="material-icons">clear</i></a></div></div>' +
             '</label>';
         jQuery("button[id='add']").click(function (e: any) {
             jQuery('#inputs_adicionais').append(input);
@@ -103,7 +103,7 @@ export class CadastroProdutoComponent implements OnInit {
 
         jQuery('#inputs_adicionais').delegate('a', 'click', function (e: any) {
             e.preventDefault();
-            jQuery(this).parent('div').remove();
+            jQuery(this).parent('div').parent('div').remove();
         });
     }
 
