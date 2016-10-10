@@ -51,17 +51,17 @@ export class CadastroProdutoComponent implements OnInit {
             }
 
             for (var y = 0; y < precos.length; y++) {
-                urlPropriedadesProduto = urlPropriedadesProduto + "&precos["+y+"]=" + (<HTMLInputElement>precos[y]).value.replace(",", "");
+                urlPropriedadesProduto = urlPropriedadesProduto + "&preco["+y+"]=" + (<HTMLInputElement>precos[y]).value.replace(",", "");
             }
             body = "q=produto&nome=" + this.nome + urlPropriedadesProduto;
-            alert(body);
-            // this.httpService.postJSON("Insert.php",
-            //     body)
-            //     .subscribe(
-            //         data => this.retorno = data,
-            //         error => console.log(error),
-            //         () => this.callBack()
-            //     )
+            // alert(body);
+            this.httpService.postJSON("Insert.php",
+                body)
+                .subscribe(
+                    data => this.retorno = data,
+                    error => console.log(error),
+                    () => this.callBack()
+                )
         }
     }
 
