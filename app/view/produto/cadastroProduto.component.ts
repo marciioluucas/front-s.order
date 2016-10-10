@@ -4,7 +4,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Retorno} from "../../model/Retorno";
 import {HttpService} from "../../services/http.service";
-declare var jQuery:any;
+declare var jQuery: any;
 @Component({
     moduleId: module.id,
     selector: 'cadastro-produto',
@@ -16,10 +16,10 @@ export class CadastroProdutoComponent implements OnInit {
     private retorno: Retorno;
     private msg: string = "";
     private isCallback = false;
-    id: number;
-    nome: string;
-    tamanho: string;
-    preco: number;
+    private id: number;
+    private nome: string;
+    private tamanho: string[];
+    private preco: number[];
     private idCadastrado: number;
 
 
@@ -28,6 +28,7 @@ export class CadastroProdutoComponent implements OnInit {
 
     ngOnInit() {
         jQuery('select').material_select();
+        this.gerarFormularioPropriedadesProduto();
     }
 
     callBack() {
@@ -37,40 +38,73 @@ export class CadastroProdutoComponent implements OnInit {
     }
 
 
+
+
     cadastrar() {
-        this.cadastrarProduto();
-        this.cadastrarPropriedadesProduto(this.idCadastrado);
-    }
+        // if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
 
-    cadastrarProduto() {
-        if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
             let body: string;
-            body = "q=produto&nome=" + this.nome;
+            var tamanhos =  document.getElementsByClassName('tamanhos');
+            var precos =  document.getElementsByClassName('precos');
+            let urlPropriedadesProduto:string = "";
+            for(var x = 0; x < tamanhos.length; x++){
+                urlPropriedadesProduto = urlPropriedadesProduto+"&tamanho[]="+(<HTMLInputElement>tamanhos[x]).value;
+            }
 
-            this.httpService.postJSON("http://192.168.0.104/apiTest/Angular/application/back/api/Insert.php",
-                body)
-                .subscribe(
-                    data => this.retorno = data,
-                    error => console.log(error),
-                    () => this.callBack()
-                )
-        }
+            for(var y = 0; y < precos.length; y++) {
+                urlPropriedadesProduto = urlPropriedadesProduto+"&precos[]="+(<HTMLInputElement>precos[y]).value.replace(",","");
+            }
+            body = "q=produto&nome=" + this.nome + urlPropriedadesProduto;
+            alert(body);
+            // this.httpService.postJSON("Insert.php",
+            //     body)
+            //     .subscribe(
+            //         data => this.retorno = data,
+            //         error => console.log(error),
+            //         () => this.callBack()
+            //     )
+        // }
     }
 
-    cadastrarPropriedadesProduto(idProduto: number) {
-        if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
-            let body: string;
-            body = "q=propriedades_produto&tamanho=" + this.tamanho + "&preco="+this.preco+"&produto_id="+idProduto;
+    // cadastrarPropriedadesProduto(idProduto: number) {
+    //     if (this.nome != undefined && this.tamanho != undefined && this.preco != undefined) {
+    //         let body: string;
+    //         body = "q=propriedades_produto&tamanho=" + this.tamanho + "&preco=" + this.preco + "&produto_id=" + idProduto;
+    //
+    //         this.httpService.postJSON("Insert.php",
+    //             body)
+    //             .subscribe(
+    //                 data => this.retorno = data,
+    //                 error => console.log(error),
+    //                 () => this.callBack()
+    //             )
+    //     }
+    // }
 
-            this.httpService.postJSON("http://192.168.0.104/apiTest/Angular/application/back/api/Insert.php",
-                body)
-                .subscribe(
-                    data => this.retorno = data,
-                    error => console.log(error),
-                    () => this.callBack()
-                )
-        }
+    gerarFormularioPropriedadesProduto() {
+        var input = "" +
+            '<label class="row">' +
+            '<div class="row">' +
+            '<div class="input-field col s8">' +
+            '<input id="" type="text" class="tamanhos" name="tamanho[]">' +
+            '<label for="tamanho">Tamanho</label>' +
+            '</div>' +
+            '<div class="input-field col s3">' +
+            '<input id="" type="text" class="precos" name="preco[]">' +
+            '<label for="preco">Preço</label>' +
+            '</div>' +
+            '<a href="#" class="remove btn-floating btn-large waves-effect waves-light red"> <i class="material-icons">clear</i></a></div>' +
+            '</label>';
+        jQuery("button[id='add']").click(function (e: any) {
+            jQuery('#inputs_adicionais').append(input);
+            jQuery('.precos').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'', decimal:'.', affixesStay: false});
+            jQuery('input').attr('autocomplete','off');
+        });
+
+        jQuery('#inputs_adicionais').delegate('a', 'click', function (e: any) {
+            e.preventDefault();
+            jQuery(this).parent('div').remove();
+        });
     }
-
 
 }

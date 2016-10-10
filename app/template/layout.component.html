@@ -4,7 +4,7 @@
 <!--* Date: 03/10/2016-->
 <!--* Time: 14:26-->
 <style>
-    header, main, footer, #botao {
+    header, main, #botao {
         padding-left: 300px;
     }
 
@@ -30,13 +30,11 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <div class="nav-wrapper deep-purple darken-3">
-
             <ul id="nav-mobile" class="left hide-on-med-and-down right">
                 <li></li>
                 <li><a [routerLink]="['/usuario/perfil']">Perfil</a></li>
                 <li><a [routerLink]="['/usuario/sair']">Sair</a></li>
             </ul>
-
         </div>
     </nav>
 
@@ -53,7 +51,7 @@
         </div>
     </div>
 </main>
-<footer class="page-footer grey darken-3" style="bottom: 0; position: fixed">
+<footer class="page-footer grey darken-3" style="bottom: 0; position: fixed; z-index: 9999">
     <div class="footer-copyright">
         <div class="container">
             © 2016 - Feito com <i class="material-icons red-text">favorite</i> por Márcio Lucas.

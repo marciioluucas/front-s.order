@@ -13,5 +13,7 @@ export class PropriedadesProdutoComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+
     
 }
