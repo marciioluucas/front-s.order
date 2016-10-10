@@ -36,6 +36,7 @@ export class CadastroProdutoComponent implements OnInit {
         this.msg = this.retorno.msg;
         this.isCallback = true;
         this.idCadastrado = this.retorno.id_cadastrado;
+        alert(this.msg);
     }
 
 

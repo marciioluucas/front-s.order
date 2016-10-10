@@ -17,5 +17,7 @@ export class LayoutComponent implements OnInit {
             }
         );
 
+        jQuery(".dropdown-button").dropdown();
+
     }
 }
