@@ -19,35 +19,29 @@
     <div class="card  white lighten-5">
         <div class="card-content">
             <div class="row">
-
                 <span class="card-title">Cadastro de produto</span>
             </div>
             <div class="row">
                 <form class="col s12">
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <input id="nome" type="text" class="">
                             <label for="nome">Nome</label>
                         </div>
-
                         <div class="row">
-                            <div class="input-field col s6">
-                                <input id="preco" type="text" class="validate">
-                                <label for="preco">Preço</label>
+                            <div class="col s12">
+                                <span>Tamanhos & Valores</span>
                             </div>
                         </div>
-
-                        <div class="input-field col s6">
-                            <select id="tamanho">
-                                <option value="" selected>Selecione</option>
-                                <option value="1">Pequeno</option>
-                                <option value="2">Medio</option>
-                                <option value="3">Grande</option>
-                            </select>
-                            <label for="tamanho">Tamanho</label>
+                        <div class="row" id="inputs_adicionais"></div>
+                        <div class="col s6 offset-s6"></div>
+                        <div class="row">
+                            <div class="col s6">
+                                <button class="btn-floating btn-large waves-effect waves-light blue" id="add">
+                                    <i class="material-icons">add</i></button>
+                            </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <label class="control-label" for="Enviar"></label>
                         <button id="Enviar" name="Enviar"
