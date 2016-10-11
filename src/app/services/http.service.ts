@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
     //Variável para definir de onde vai requisitar os jsons nos métodos abaixo.
-    enderecoAPI: string = "http://192.168.0.101/apiTest/Angular/application/back/api/";
+    enderecoAPI: string = "http://192.168.0.104/apiTest/Angular/application/back/api/";
 
 
     constructor(private http: Http) {

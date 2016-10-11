@@ -5,13 +5,62 @@
 <!--* Date: 05/10/2016-->
 <!--* Time: 11:12-->
 <!--*/-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<style>
+    .input-field input:focus {
+        border-bottom: 1px solid #311b92;
+        box-shadow: 0 1px 0 0 #000;
+    }
 
-</body>
-</html>
+    span {
+        color: #3d3d3d !important;
+    }
+</style>
+<div class="col s12">
+    <div class="card  white lighten-5">
+        <div class="card-content">
+            <div class="row">
+                <span class="card-title">Cadastro de Pedido</span>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="name" name="nome" type="text" [(ngModel)]="nome">
+                            <label for="name">Nome do cliente</label>
+                        </div>
+                        <div class="row"></div>
+                        <div class="row">
+                            <div class="col s12">
+                                <span>Qual você vai querer?</span>
+                                <!--<label>Lista de produtos</label>-->
+                                <!--TODO: Fazer um link de um modal com os produtos -->
+                                <!--TODO: Ter a opção neste modal para os produtos mais pedidos-->
+                                <!--TODO: Pode ter também a opção Aleatório-->
+                            </div>
+                        </div>
+                        <div class="row" id="inputs_adicionais">
+
+                        </div>
+                        <div class="col s6 offset-s6"></div>
+                        <div class="row">
+                            <div class="col s6">
+                                <button class="btn-floating btn-large waves-effect waves-light blue" id="add">
+                                    <i class="material-icons">add</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label" for="Enviar"></label>
+                        <button id="Enviar" name="Enviar"
+                                class="waves-effect waves-light btn deep-purple darken-3"
+                                (click)="cadastrar()">Enviar
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
