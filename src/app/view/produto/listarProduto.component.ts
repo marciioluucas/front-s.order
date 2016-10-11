@@ -23,7 +23,7 @@ export class ListarProdutoComponent implements OnInit {
 
         this.httpService.getJSON("Search.php?q=produto&filtro=1&valorFiltro=1")
             .subscribe(
-                data => this.produtos = data.usuario,
+                data => this.produtos = data.produto,
                 error =>console.log(error)
             );
         // alert(this.usuarios);

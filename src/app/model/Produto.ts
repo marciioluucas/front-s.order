@@ -3,6 +3,6 @@
  */
 export class Produto {
     id:number;
-    nome:string;
+    public nome:string;
 
 }

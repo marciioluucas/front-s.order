@@ -39,7 +39,21 @@
                             </div>
                         </div>
                         <div class="row" id="inputs_adicionais">
-
+                            <label class="row">
+                                <div class="row">
+                                    <div class="input-field col s7">
+                                        <input type="text" class="produtos" name="produto[]" (click)="autoComplete()" (blur)="resetDados()" autocomplete="off">
+                                        <label>Produtos</label>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <input type="text" class="tamanhos" name="tamanho[]">
+                                        <label>Tamanhos</label>
+                                    </div>
+                                    <div class="col s2"><a href="#"
+                                                           class="remove btn-floating btn-large waves-effect waves-light red">
+                                        <i class="material-icons">clear</i></a></div>
+                                </div>
+                            </label>
                         </div>
                         <div class="col s6 offset-s6"></div>
                         <div class="row">

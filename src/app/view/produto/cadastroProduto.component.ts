@@ -47,11 +47,11 @@ export class CadastroProdutoComponent implements OnInit {
             var precos = document.getElementsByClassName('precos');
             let urlPropriedadesProduto: string = "";
             for (var x = 0; x < tamanhos.length; x++) {
-                urlPropriedadesProduto = urlPropriedadesProduto + "&tamanho["+x+"]=" + (<HTMLInputElement>tamanhos[x]).value;
+                urlPropriedadesProduto = urlPropriedadesProduto + "&tamanho[" + x + "]=" + (<HTMLInputElement>tamanhos[x]).value;
             }
 
             for (var y = 0; y < precos.length; y++) {
-                urlPropriedadesProduto = urlPropriedadesProduto + "&preco["+y+"]=" + (<HTMLInputElement>precos[y]).value.replace(",", "");
+                urlPropriedadesProduto = urlPropriedadesProduto + "&preco[" + y + "]=" + (<HTMLInputElement>precos[y]).value.replace(",", "");
             }
             body = "q=produto&nome=" + this.nome + urlPropriedadesProduto;
             // alert(body);
