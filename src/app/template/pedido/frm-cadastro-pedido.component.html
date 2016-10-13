@@ -46,8 +46,12 @@
                                         <label>Produtos</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <input type="text" class="tamanhos" name="tamanho[]">
-                                        <label>Tamanhos</label>
+                                        <select name="tamanho[]">
+                                            <option value="" selected>Choose your option</option>
+                                            <option value="1" *ngFor="let tamanho of tamanhos">Option 1</option>
+
+                                        </select>
+                                        <label>Tamanho</label>
                                     </div>
                                     <div class="col s2"><a href="#"
                                                            class="remove btn-floating btn-large waves-effect waves-light red">

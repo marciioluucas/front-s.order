@@ -4,7 +4,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {Produto} from "../../model/Produto";
-import {forEach} from "@angular/router/src/utils/collection";
 declare var jQuery: any;
 @Component({
     selector: 'cadastro-pedido',
@@ -15,6 +14,7 @@ export class CadastroPedidoComponent implements OnInit {
     private produtos: Produto[];
     private dados: string;
 
+
     constructor(private httpService: HttpService) {
 
     }
@@ -22,18 +22,9 @@ export class CadastroPedidoComponent implements OnInit {
     ngOnInit() {
         this.listarProduto();
         this.gerarProdutos();
-
-    }
-
-    ngAfterViewInit() {
-        this.gerarAutoComplete();
-    }
-
-
-
-    gerarAutoComplete() {
         this.criarDadosParaAutoComplete();
     }
+
 
     autoComplete() {
         jQuery('.produtos').autocomplete({
