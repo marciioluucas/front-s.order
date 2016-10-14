@@ -3,6 +3,8 @@
  */
 export class Produto {
     id:number;
-    public nome:string;
+    nome:string;
+    tamanho:string;
+    preco:string;
 
 }

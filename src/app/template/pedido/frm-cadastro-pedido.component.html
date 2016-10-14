@@ -25,7 +25,7 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="name" name="nome" type="text" [(ngModel)]="nome">
+                            <input id="name" name="nome" type="text" [(ngModel)]="nome" autocomplete="off">
                             <label for="name">Nome do cliente</label>
                         </div>
                         <div class="row"></div>
@@ -38,31 +38,39 @@
                                 <!--TODO: Pode ter também a opção Aleatório-->
                             </div>
                         </div>
-                        <div class="row" id="inputs_adicionais">
-                            <label class="row">
-                                <div class="row">
-                                    <div class="input-field col s7">
-                                        <input type="text" class="produtos" name="produto[]" (click)="autoComplete()" (blur)="resetDados()" autocomplete="off">
-                                        <label>Produtos</label>
-                                    </div>
-                                    <div class="input-field col s3">
-                                        <select name="tamanho[]">
-                                            <option value="" selected>Choose your option</option>
-                                            <option value="1" *ngFor="let tamanho of tamanhos">Option 1</option>
+                        <div class="row" id="inputs_adicionais" style="display: none;">
 
-                                        </select>
-                                        <label>Tamanho</label>
-                                    </div>
-                                    <div class="col s2"><a href="#"
-                                                           class="remove btn-floating btn-large waves-effect waves-light red">
-                                        <i class="material-icons">clear</i></a></div>
+                            <div class="row">
+                                <div class="input-field col s7">
+                                    <!--<input type="text" class="produtos" name="produto[]" autocomplete="off">-->
+                                    <select name="produto[]" id="produto0" data-size="10" class="produtos">
+                                        <option value="" selected>Selecione o produto</option>
+                                        <option value="{{produto.id}}" *ngFor="let produto of produtos">
+                                            {{produto.nome}}
+                                        </option>
+                                    </select>
+                                    <label for="produto0">Produtos</label>
                                 </div>
-                            </label>
+                                <div class="input-field col s3">
+                                    <select name="tamanho[]" class="tamanhos" id="tamanho0">
+                                        <option value="" selected>Choose your option</option>
+                                        <option value="1" *ngFor="let tamanho of tamanhos">Option 1</option>
+
+                                    </select>
+                                    <label for="tamanho0">Tamanho</label>
+                                </div>
+                                <div class="col s2">
+                                    <button
+                                            class="btn-floating btn-large waves-effect waves-light red" disabled>
+                                        <i class="material-icons">clear</i></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col s6 offset-s6"></div>
                         <div class="row">
                             <div class="col s6">
-                                <button class="btn-floating btn-large waves-effect waves-light blue" id="add">
+                                <button class="btn-floating btn-large waves-effect waves-light blue" id="add"
+                                        (click)="gerarProdutos()" style="display: none">
                                     <i class="material-icons">add</i></button>
                             </div>
                         </div>
