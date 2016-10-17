@@ -4,7 +4,7 @@
 export class Produto {
     id:number;
     nome:string;
-    tamanho:string;
-    preco:string;
+    tamanhos:string[] = [""];
+    precos:number[];
 
 }
